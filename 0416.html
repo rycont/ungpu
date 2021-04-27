@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>아이디</label>
+    <label>비밀번호</label><br />
+    <input type="radio" /> 일본어 <br /><label>
+      <input type="radio" /> 일본어
+      <!--텍스트 부분을 클릭해도 올챙이 선택이 됨!-->
+    </label>
+
+    <!-- 있어보이는 폼 -->
+    <fieldset>
+      <!-- legend: 입력영역의 이름 -->
+      <legend>대륙!</legend>
+      <label> <input type="radio" /> 영어 </label>
+      <label>
+        <input type="radio" name="" />
+        중국어?
+      </label>
+    </fieldset>
+
+    <!-- 여러개 가능 -->
+    <fieldset>
+      <!-- legend: 입력영역의 이름 -->
+      <legend>개인정보를 수집합니다</legend>
+      어디학교다니세요?
+      <!-- name이 같은 radio들 끼리는 중복선택이 되지 않음. -->
+      <label> <input type="radio" name="학교" /> 디미고 </label>
+      <label> <input type="radio" name="학교" /> 선린고 </label>
+      <label>
+        <input type="radio" name="학교" /> 대덕소프트웨어마이스터고등학교
+      </label>
+      <label>
+        <input type="radio" name="학교" /> 단국대학교부속소프트웨어고등학교
+      </label>
+      in
+    </fieldset>
+  </body>
+</html>

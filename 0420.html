@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function fn_click() {
+        // 패스워드 / 히든이여도 스크립트로는 보임!
+        alert(document.getElementById("txtTextBox1").value);
+        alert(document.getElementById("tfPwd").value);
+      }
+      function fn_number(v) {
+        alert(v.value);
+        alert(v.max);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="hidden" id="httTextField1" value="1" /><br />
+    <input type="text" id="txtTextBox1" value="93459592" maxlength="3" /><br />
+    <label> 이름 : <input type="text" value="홍채희" id="tfName" /> </label
+    ><br />
+    <label>
+      <!--여기선 입력해도 안보임.-->
+      비밀번호 : <input type="password" value="이미있죠" id="tfPwd" /> </label
+    ><br />
+    <label> 서치 찾기 : <input type="search" /> </label><br />
+    <label> URL : <input type="URL" /> </label><br />
+    <label> 이메일 : <input type="email" /> </label><br />
+    <label>
+      구매 수량 :
+      <input
+        type="number"
+        min="10"
+        max="30"
+        onkeyup="fn_number(this)"
+      /> </label
+    ><br />
+
+    <!--아이폰용 브라우저에서는 전번키패드가 뜬다함-->
+    <label> 텔 : <input type="tel" /> </label><br />
+    <form action="">
+      <!--파워레인저-->
+      <label>
+        레인지 :
+        <input
+          type="range"
+          name="slider"
+          for="result"
+          oninput="result.value = slider.value"
+        />
+        <input
+          name="result"
+          for="slider"
+          oninput="slider.value = result.value; console.log(value)"
+        /> </label
+      ><br />
+    </form>
+
+    <input type="button" value="클릭이다" onclick="fn_click()" />
+  </body>
+</html>

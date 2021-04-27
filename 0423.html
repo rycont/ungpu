@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input:in-range {
+        border: 1px solid blue;
+      }
+      input:out-of-range {
+        border: 1px solid red;
+      }
+    </style>
+    <script>
+      function chk() {
+        var color = document.getElementById("colorSelector"),
+          month = document.getElementById("month"),
+          week = document.getElementById("week"),
+          date = document.getElementById("date");
+        alert(color.value, month.value, week.value, date.value);
+        // var radioButtons = document.getElementsByName("subject");
+
+        // for (i = 0; i < radioButtons.length; i++) {
+        //   alert(radioButtons[i].checked + " : " + radioButtons[i].value);
+        // }
+      }
+    </script>
+  </head>
+  <body>
+    <form action="/server.php" method="">
+      <input type="number" max="5" min="1" />
+      <label>수학<input type="radio" name="subject" value="math" /></label
+      ><br />
+      <label>국어<input type="radio" name="subject" value="math" /></label
+      ><br />
+      <label>문학<input type="radio" name="subject" value="math" /></label
+      ><br />
+      <hr />
+      <label><input type="checkbox" name="jeongong" value="math" /></label
+      ><br /><label
+        >응프<input type="checkbox" name="jeongong" value="fe" /></label
+      ><br /><label
+        >정보<input type="checkbox" name="jeongong" value="ict" /></label
+      ><br /><label
+        >정보관<input type="checkbox" name="jeongong" value="sc" /></label
+      ><br /><label
+        >빅데이터<input type="checkbox" name="jeongong" value="bd" /></label
+      ><br />
+      <input type="color" id="colorSelector" />
+      <input type="date" id="date" />
+      <input type="month" id="month" />
+      <input type="week" id="week" />
+      <input type="button" value="값 보기" onclick="chk()" />
+      <hr />
+
+      <input type="time" />
+      <input type="datetime" />
+      <input type="datetime-local" />
+      <input type="submit" value="제출" />
+      <input type="reset" value="초기화" />
+      <input type="file" value="과제 제출" /><br />
+      <input type="image" src="./꺄.jpg" width="60" />
+    </form>
+  </body>
+</html>
