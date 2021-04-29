@@ -18,19 +18,54 @@
       <input type="password" placeholder="비밀번호도 입력하세요" /><br />
       자동초점 : <input autofocus type="text" placeholder="" /><br />
       읽기전용 : <input type="text" readonly /><br />
+      미터태그?: <meter value="0.3"></meter> <br />
       이메일 : <input type="text" placeholder="이메일을 입력하세요" /><br />
-      전화번호 : <input type="text" placeholder="전화번로를 입력하세요" /><br />
+      전화번호 : <input type="text" placeholder="전화번호를 입력하세요" /><br />
       필수값: <input type="text" required size="10" /><br />
-      <select size="7" multiple>
-        <option>수박</option>
-        <option>포도</option>
-        <option>복숭아</option>
-        <option>사과</option>
-        <option>딸기</option>
-        <option>당근</option>
-        <option>대추</option>
+      <select size="7">
+        <optgroup label="과일">
+          <option value="GR">포도</option>
+          <option value="PC">복숭아</option>
+          <option value="AP" selected>사과</option>
+          <option value="DC">대추</option>
+        </optgroup>
+        <optgroup label="채소">
+          <option value="WM">수박</option>
+          <option value="ST">딸기</option>
+          <option value="CR">당근</option>
+        </optgroup></select
+      ><br />
+
+      <select>
+        <option>선택해주세요</option>
+        <option>1반</option>
+        <option>2반</option>
+        <option>3반</option>
+        <option>4반</option>
+        <option>5반</option>
+        <option>6반</option>
       </select>
+      <br />
+
+      <input type="text" list="menu" /><br />
+
+      <datalist id="menu">
+        <option>치킨</option>
+        <option>피자</option>
+        <option>탕수육</option></datalist
+      ><br />
+
+      <textarea></textarea>
+
       <input type="submit" value="가입" />
+
+      <button>버튼</button>
     </form>
+    <form oninput="result.value = +num1.value+ +num2.value">
+      2. 폼 두개 <input type="number" name="num1" value="0" />+
+      <input type="number" name="num2" value="0" />=
+      <output name="result"></output>
+    </form>
+    <progress value="10" max="100"></progress>
   </body>
 </html>
