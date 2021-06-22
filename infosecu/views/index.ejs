@@ -1,0 +1,89 @@
+<%- include('./component/header') %>
+<%- include('./component/navbar') %>
+    <div class="container">
+
+      <% if(logined !== false) { %>
+      <div style="margin-top: 1.5rem">
+        <div class="form-group">
+          <select class="form-control" id="category">
+            <option value="free" selected>⭐ 자유게시판</option>
+            <option value="question">⚡ 질문게시판</option>
+            <option value="image">📷 사진게시판</option>
+          </select>
+        </div>
+        
+      </div>
+
+      
+      <div style="float: right; margin:5px">
+        <button type="button" class="btn btn-outline-primary" id="writeBtn">✍ Write</button>
+      </div>
+      <% } %>
+
+      <div>
+        <ul class="list-group list-group-flush" id="list">
+        </ul>
+      </div>   
+
+    </div>
+
+    <% if(logined === false) { %>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalTitle">Login / Register</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post" action="/login" id="loginForm">
+              <div class="form-group">
+                <input type="email" class="form-control" id="inputID" aria-describedby="idHelp" placeholder="ID" name="id" required>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="inputPW" placeholder="Password" name="pw" required>
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" id="registerBtn">Register</button>
+            <button type="button" class="btn btn-outline-primary" id="loginBtn">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% } else {%>
+      <form method="post" action="/board/write" id="writeForm" enctype="multipart/form-data">
+        <div class="modal fade" id="writeModal" tabindex="-1" role="dialog" aria-labelledby="writeModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <input type="text" class="form-control" name="title" placeholder="title" required>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <textarea class="form-control" name="content" rows="5" style="resize: none;" form="writeForm" placeholder="content" required></textarea>
+                  <div class="form-group">
+                    <input type="hidden" id="categoryInput" name="category" value=""> 
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <div class="custom-file" style="width: 88%">
+                  <input type="file" class="custom-file-input" id="customFile" name="file">
+                  <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+
+                <button type="button" class="btn btn-outline-primary" id="writeSubmit">✍ Write</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    <% } %>
+
+<%- include('./component/footer') %>

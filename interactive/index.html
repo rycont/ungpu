@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0px;
+        width: 100vw;
+        height: 100vh;
+      }
+      .box {
+        background-color: #e8e8e8;
+        width: 100px;
+        height: 100px;
+        left: 100px;
+        top: 100px;
+        position: absolute;
+        transition: transform 0.6s cubic-bezier(0, 0.66, 0.25, 0.96),
+          box-shadow 0.6s cubic-bezier(0, 0.66, 0.25, 0.96),
+          background-color 0.6s cubic-bezier(0, 0.66, 0.25, 0.96);
+        border-radius: 18px;
+        user-select: none;
+      }
+      .elevated {
+        transform: scale(1.1);
+        background-color: white;
+        box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.08);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <script src="./index.js"></script>
+  </body>
+</html>

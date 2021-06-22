@@ -1,0 +1,11 @@
+section article {
+  border: 1px red;
+}
+#pet1 {
+  border-radius: 24px;
+  border-style: solid;
+}
+#pet2 {
+  border-radius: 12px;
+  border-style: dotted;
+}

@@ -1,0 +1,7 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <div class="container">
+    <p class="text-primary d-md-block lead mb-0" id="goMain"> <i class="fab fa-korvue"></i> <b>KoreaSpa</b>&nbsp;</p>
+    <% if(logined === false) { %><p class="text-primary h6 mb-0 login"> <i class="fas fa-sign-in-alt"></i> <b>Login</b>&nbsp;</p> 
+    <% } else { %> <p class="text-primary h6 mb-0 logout"><b>Welcome <%= logined %> !</b></p> <% } %>
+  </div>
+</nav>

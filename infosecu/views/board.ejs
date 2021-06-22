@@ -1,0 +1,24 @@
+<%- include('./component/header') %>
+<%- include('./component/navbar') %>
+  <div class="container">
+    <div style="margin-top: 1.5rem">
+      <p class="d-flex justify-content-between align-items-center">
+        🗒 <%= data.title %>
+        <span class="badge badge-primary badge-pill"><%= data.author %></span>
+      </p>
+    </div>
+    <hr>
+
+    <div style="float: right; margin:5px">
+      <button type="button" class="btn btn-outline-primary" id="backBtn">⬅ back</button><br><br>
+      <% if(data.file !== '' && data.category !== 'image') { %>
+        <button type="button" class="btn btn-outline-primary" id="downloadBtn" value="<%= data.no %>">🗂 Download</button>
+      <% } %>
+    </div>
+    
+    <div>
+      <%= data.content %>
+      <% if(data.file !== '' && data.category === 'image') { %> <img src="/board/download/<%= data.no %>">  <% } %>
+    </div>
+  </div>
+<%- include('./component/footer') %>

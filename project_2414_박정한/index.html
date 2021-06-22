@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <style>
+      /* #region 건들지 말게 ...*/
+      @charset "utf-8";
+      @import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
+
+      html,
+      body,
+      div,
+      span,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      button,
+      abbr,
+      acronym,
+      address,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      strong,
+      sub,
+      sup,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      hr {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100%;
+        min-height: 100%;
+        font-family: "Noto Sans Korean", "Malgun Gothic", "맑은고딕", "돋움",
+          dotum, sans-serif;
+        font-size: 16px;
+        color: #737373;
+        line-height: 1.5;
+        /* background: url(../images/content_bg4.png) repeat; */
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: normal;
+      }
+      ol,
+      ul,
+      li {
+        list-style: none;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      form,
+      fieldset,
+      iframe {
+        display: block;
+        border: 0;
+      }
+      img,
+      button {
+        border: 0 none;
+        vertical-align: top;
+      }
+      hr {
+        height: 0;
+        display: none;
+      }
+      i,
+      em,
+      address {
+        font-style: normal;
+      }
+      label,
+      button {
+        cursor: pointer;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      caption,
+      legend {
+        overflow: hidden;
+        visibility: hidden;
+        position: absolute;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+        text-indent: -100%;
+        white-space: nowrap;
+        z-index: -1;
+      }
+      header,
+      footer,
+      section,
+      article,
+      aside,
+      nav,
+      hgroup,
+      details,
+      menu,
+      figure,
+      figcaption {
+        display: block;
+        box-sizing: border-box;
+      }
+      input,
+      textarea,
+      select,
+      button {
+        font-family: "Noto Sans Korean", "Malgun Gothic", "맑은고딕", "돋움",
+          dotum, sans-serif;
+        font-size: 16px;
+        color: #919090;
+        line-height: 1.5;
+        letter-spacing: 0;
+        vertical-align: middle;
+        border: none;
+      }
+      input,
+      textarea {
+        margin: 0;
+        padding: 0;
+        background: none;
+        box-sizing: border-box;
+      }
+      textarea {
+        resize: none;
+      }
+      a {
+        color: #919090;
+        text-decoration: none;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      .blind {
+        display: none;
+        overflow: hidden;
+        position: absolute;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999em;
+        visibility: hidden;
+        outline: none;
+        z-index: -1;
+      }
+      html,
+      body {
+        overflow: hidden;
+        height: 100%;
+      }
+      /* #endregion */
+
+      #wrap {
+        width: 100%;
+        height: 100%;
+        padding-right: 180px;
+      }
+      #wrap > h1 {
+        font-size: 0px;
+      }
+      #wrap header {
+        width: 180px;
+        height: 100%;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        background: url(./images/menu_bg1.png), repeat-y;
+        z-index: 10;
+      }
+      #wrap header nav {
+        width: 100%;
+        height: 100%;
+      }
+      #wrap header nav ul {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #wrap header nav ul li {
+        margin: 0px 0px 10px 30px;
+        padding-left: 15px;
+        position: relative;
+      }
+      #wrap header nav ul li:after {
+        content: "";
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        left: 0px;
+        top: 13px;
+      }
+      #wrap header nav ul li:hover a,
+      #wrap header nav ul li.on a {
+        color: red;
+      }
+      #wrap header nav ul li:hover::after,
+      #wrap header nav ul li.on::after {
+        background-color: red;
+      }
+      #wrap header nav ul li a {
+        font-weight: 600;
+        line-height: 30px;
+        font-size: 16px;
+        color: white;
+      }
+
+      header .logo_box {
+        position: absolute;
+        right: 35px;
+        top: 75px;
+        cursor: pointer;
+      }
+      header .logo_box img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+      footer {
+        width: 180px;
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        padding: 0px 20px 30px 20px;
+        font-size: 11px;
+        z-index: 10;
+        color: white;
+      }
+      footer address {
+        padding: 0px 0px 15px 0px;
+      }
+      footer > a {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        background-size: cover;
+        top: -30px;
+        position: absolute;
+        transition: 1s;
+      }
+      footer > a.face {
+        background: url(./images/social_b_facebook.png) no-repeat;
+        right: 18px;
+      }
+      footer > a.face:hover {
+        background-image: url(./images/social_b_facebook_hover.png);
+      }
+      footer > a.insta {
+        background: url(./images/social_b_instar.png) no-repeat;
+        right: 48px;
+      }
+      footer > a.insta:hover {
+        background-image: url(./images/social_b_instar_hover.png);
+      }
+      #container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        max-width: 1200px;
+        margin: 0px auto;
+      }
+      .content {
+        height: 100%;
+        width: 25%;
+        position: absolute;
+        transition: 1s;
+      }
+
+      #container .content:before,
+      #container .content:after {
+        content: "";
+        display: block;
+        position: absolute;
+      }
+      #container .content:before {
+        width: 1px;
+        height: 100%;
+        background: white;
+        left: 0;
+        top: 0;
+        z-index: 4;
+      }
+      #container .content:after {
+        left: 30px;
+        top: 180px;
+        font-size: 25px;
+        font-weight: 700;
+        color: orange;
+      }
+      .content#menu1 {
+        left: 0%;
+        background-image: url(./images/content_bg1.png);
+      }
+      .content#menu2 {
+        left: 25%;
+        background-image: url(./images/content_bg2.png);
+      }
+      .content#menu3 {
+        left: 50%;
+        background-image: url(./images/content_bg3.png);
+      }
+      .content#menu4 {
+        left: 75%;
+        background-image: url(./images/content_bg4.png);
+      }
+      #container #menu1:after {
+        content: "학교소개";
+      }
+      #container #menu2:after {
+        content: "과목소개";
+      }
+      #container #menu3:after {
+        content: "FAQ";
+      }
+      #container #menu4:after {
+        content: "Contact Us";
+      }
+      #container .content .conbox:before {
+        content: "";
+        display: block;
+        position: absolute;
+      }
+      #container #menu1 .conbox:before {
+        background: url(./images/main_ico1.png) no-repeat;
+        width: 350px;
+        height: 260px;
+        right: -10px;
+        top: 130px;
+        background-size: 100%;
+      }
+
+      #container #menu2 .conbox:before {
+        background: url(./images/main_ico2.png) no-repeat;
+        width: 180px;
+        height: 470px;
+        right: -30px;
+        top: 180px;
+        background-size: 100%;
+      }
+
+      #container #menu3 .conbox:before {
+        background: url(./images/main_ico3.png) no-repeat;
+        width: 270px;
+        height: 310px;
+        right: -60px;
+        top: 30px;
+        background-size: 100%;
+      }
+
+      #container #menu4 .conbox:before {
+        background: url(./images/main_ico4.png) no-repeat;
+        width: 350px;
+        height: 400px;
+        right: -170px;
+        top: 100px;
+        background-size: 100%;
+      }
+
+      #container .content h2 {
+        opacity: 0;
+      }
+
+      #container .content.this h2 {
+        opacity: 1;
+        height: auto;
+        padding: 30px 0px 20px 50px;
+        color: black;
+        position: relative;
+        background: white;
+        font-weight: 400;
+        font-size: 28px;
+        transition: all 0.6s;
+        transition-delay: 1.2s;
+      }
+
+      #container .content .conbox .content_wrap {
+        opacity: 0;
+        transition: 1s;
+      }
+
+      #container .content.this .conbox .content_wrap {
+        padding: 30px 50px 50px;
+        opacity: 1;
+        color: white;
+      }
+
+      #container .content.this h2:after {
+        content: "";
+        width: 100%;
+        height: 8px;
+        background: #e83c77;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+      }
+
+      #container .content.this {
+        width: 100%;
+        left: 0 !important;
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+      }
+      #container .content.prev {
+        width: 100%;
+        left: -100% !important;
+      }
+      #container .content.next {
+        width: 100%;
+        left: 100% !important;
+      }
+
+      #container .content.this:before,
+      #container .content.this:after,
+      #container .content.this .conbox:before,
+      #container .content.prev:before,
+      #container .content.prev:after #container .content.prev .conbox:before,
+      #container .content.after:before,
+      #container .content.after:after #container .content.after .conbox:before,
+      #container .content.this:after {
+        opacity: 0 !important;
+        transition: all 0.6s;
+        transition-delay: 0.3s;
+      }
+
+      #container .content.this .conbox:before {
+        transform: translate3d(300px, 0, 0);
+      }
+
+      #container .content.this .conbox:after {
+        transform: translate3d(-300px, 0, 0);
+      }
+
+      /* #container .content.prev:before {
+        opacity: 0;
+        transition: all .6s;
+        transition-delay: .3s;
+      } */
+
+      #container .content {
+        top: -100%;
+        transition: all 0.8s;
+      }
+
+      #container .content:nth-of-type(2) {
+        transition-delay: 0.3s;
+      }
+
+      #container .content:nth-of-type(3) {
+        transition-delay: 0.6s;
+      }
+
+      #container .content:nth-of-type(4) {
+        transition-delay: 0.9s;
+      }
+
+      #container.start .content {
+        top: 0;
+      }
+
+      .pragrph_tit {
+        margin-bottom: 50px;
+        font-size: 24px;
+        color: white;
+        position: relative;
+      }
+
+      .pragrph_tit:after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 8px;
+        background: #e83c77;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+      }
+
+      .text_box h4 {
+        font-size: 40px;
+        color: yellow;
+        font-weight: 700;
+      }
+
+      .text_box p {
+        margin-bottom: 50px;
+        line-height: 30px;
+        color: greenyellow;
+      }
+
+      #container .content.this .conbox {
+        max-width: 1100px;
+        margin: 0 auto;
+        text-overflow: ellipsis;
+      }
+
+      .tit_faq {
+        color: white;
+        position: relative;
+      }
+
+      .tit_faq strong {
+        font-size: 25px;
+        padding-right: 10px;
+      }
+
+      .tit_faq span {
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .tit_faq:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 120px;
+        height: 150px;
+        background: url("./images/faq_boy.png") no-repeat;
+        right: 0px;
+        top: 36px;
+      }
+
+      .accordio_box {
+        margin-top: 170px;
+      }
+
+      .accordio_box ol li {
+        width: 100%;
+        background-color: white;
+        border-top: 4px solid red;
+      }
+
+      .accordio_box ol li h4 {
+        display: block;
+        padding: 0px 20px 20px 0px;
+        margin: 20px 20px 0px 30px;
+        cursor: pointer;
+        background: url("./images/select_bullet_up.png") no-repeat;
+        right: 11px;
+        font-weight: 400;
+        color: grey;
+      }
+
+      .accordio_box ol li h4 span {
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: 900;
+      }
+
+      .accordio_box ol li p {
+        height: auto;
+        padding: 30px 100px 70px 200px;
+        background-color: #ebebeb;
+        background-size: 100px;
+        background-repeat: no-repeat;
+      }
+
+      .accordio_box ol li p {
+        height: 0px;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s;
+      }
+
+      .accordio_box ol li.on p {
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .accordio_box ol li.on h4 {
+        background: url(./images/select_bullet_down.png) no-repeat;
+      }
+
+      .accordio_box ol li:nth-of-type(1) p {
+        background-image: url("./images/board_boy.png");
+        background-position: 40px -1;
+      }
+
+      .accordio_box ol li:nth-of-type(2) p {
+        background-image: url("./images/read_boy.png");
+        background-position: 40px -1;
+      }
+
+      .accordio_box ol li:nth-of-type(3) p {
+        background-image: url("./images/shopping_boy.png");
+        background-position: 40px -1;
+      }
+
+      .accordio_box ol li:nth-of-type(4) p {
+        background-image: url("./images/meeting_boy.png");
+        background-position: 40px -1;
+      }
+
+      #menu4 .content_wrap {
+        width: 800px;
+        margin: 100px auto 0 auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 5px;
+      }
+      #menu4 .content_wrap .form_tit {
+        margin-bottom: 40px;
+        font-size: 24px;
+        font-weight: 700;
+        color: #ea657b;
+      }
+      .formlist {
+        padding-bottom: 150px;
+        background: url(../images/contact_bg.png) no-repeat right bottom;
+        background-size: 200px;
+      }
+      .formlist ul li {
+        margin-bottom: 15px;
+        position: relative;
+        padding: 0 0 0 150px;
+      }
+      .formlist ul li label {
+        display: block;
+        width: 150px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 14px;
+        color: #555;
+      }
+      .formlist ul li label sup {
+        color: #ea657b;
+      }
+      .formlist ul li span {
+        display: block;
+      }
+      .formlist ul li .inputbox {
+        width: 100%;
+        height: 40px;
+        border: solid 1px #ddd;
+        background: #fff;
+      }
+      .formlist ul li .textbox {
+        width: 100%;
+        height: 200px;
+        border: solid 1px #ddd;
+        background: #fff;
+      }
+      .formlist ul li input,
+      .formlist ul li textarea {
+        width: 100%;
+        height: 100%;
+      }
+      .btn_box {
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+      }
+      /*폼 전송 완료 팝업*/
+      .thankyou_message {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        display: none;
+      }
+      .thankyou_message > section > h1 {
+        color: #59c3c3;
+        font-size: 25px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .thankyou_message > section {
+        width: 550px;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 5px;
+        background: url(../images/contact_pop.jpg) no-repeat #fff right bottom;
+        background-size: 240px;
+        color: #3c4147;
+      }
+      /*공통으로 사용되는 스타일 */
+      /*블릿*/
+      .bullet_list {
+        margin-top: 20px;
+      }
+      .bullet_list li {
+        margin-bottom: 5px;
+        padding-left: 10px;
+        font-size: 12px;
+        color: #3c4147;
+        position: relative;
+      }
+      .bullet_list li:after {
+        content: "";
+        display: block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: #3c4147;
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
+      /*버튼*/
+      .commbtn {
+        width: 150px;
+        display: inline-block;
+        height: 35px;
+        margin-top: 20px;
+        font-size: 15px;
+        line-height: 35px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .commbtn.pink {
+        background: #f92d68;
+        color: #fff;
+      }
+      .commbtn.gray {
+        background: #3c4147;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="wrap">
+      <h1>디미고</h1>
+      <header>
+        <strong class="logo_box">
+          <img src="./images/dimigo_logo.png" alt="디미고 로고" />
+        </strong>
+        <nav>
+          <ul>
+            <li data-role="menu1">
+              <a href="#">디미트윗</a>
+            </li>
+            <li data-role="menu2">
+              <a href="#">수업소개</a>
+            </li>
+            <li data-role="menu3"><a href="#">FAQ</a></li>
+            <li data-role="menu4"><a href="#">Contact Us</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section id="container">
+        <section id="menu1" class="content">
+          <h2>학교소개</h2>
+          <div class="conbox">
+            <section class="content_wrap">
+              <h3 class="pragrph_tit">으악</h3>
+              <div class="pragrph">
+                <div class="text_box">
+                  <h4>우리 학교를 소개합니다</h4>
+                  <p>
+                    우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에 위치해서
+                    학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는
+                    역사와 전통에 빛나지는 않지만, 경기도에 위치해서 학비가
+                    비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는 역사와
+                    전통에 빛나지는 않지만, 경기도에 위치해서 학비가 비싸요 산도
+                    많고 새도 많고 벚꽃이 예쁘고 우리 학교는 역사와 전통에
+                    빛나지는 않지만, 경기도에 위치해서 학비가 비싸요 산도 많고
+                    새도 많고 벚꽃이 예쁘고 우리 학교는 역사와 전통에 빛나지는
+                    않지만, 경기도에 위치해서 학비가 비싸요 산도 많고 새도 많고
+                    벚꽃이 예쁘고 우리 학교는 역사와 전통에 빛나지는 않지만,
+                    경기도에 위치해서 학비가 비싸요 산도 많고 새도 많고 벚꽃이
+                    예쁘고 우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에
+                    위치해서 학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고
+                    우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에 위치해서
+                    학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는
+                    역사와 전통에 빛나지는 않지만, 경기도에 위치해서 학비가
+                    비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는 역사와
+                    전통에 빛나지는 않지만, 경기도에 위치해서 학비가 비싸요 산도
+                    많고 새도 많고 벚꽃이 예쁘고 우리 학교는 역사와 전통에
+                    빛나지는 않지만, 경기도에 위치해서 학비가 비싸요 산도 많고
+                    새도 많고 벚꽃이 예쁘고 우리 학교는 역사와 전통에 빛나지는
+                    않지만, 경기도에 위치해서 학비가 비싸요 산도 많고 새도 많고
+                    벚꽃이 예쁘고 우리 학교는 역사와 전통에 빛나지는 않지만,
+                    경기도에 위치해서 학비가 비싸요 산도 많고 새도 많고 벚꽃이
+                    예쁘고 우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에
+                    위치해서 학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고
+                    우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에 위치해서
+                    학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는
+                    역사와 전통에 빛나지는 않지만, 경기도에 위치해서 학비가
+                    비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는 역사와
+                    전통에 빛나지는 않지만, 경기도에 위치해서 학비가 비싸요 산도
+                    많고 새도 많고 벚꽃이 예쁘고 우리 학교는 역사와 전통에
+                    빛나지는 않지만, 경기도에 위치해서 학비가 비싸요 산도 많고
+                    새도 많고 벚꽃이 예쁘고 우리 학교는 역사와 전통에 빛나지는
+                    않지만, 경기도에 위치해서 학비가 비싸요 산도 많고 새도 많고
+                    벚꽃이 예쁘고 우리 학교는 역사와 전통에 빛나지는 않지만,
+                    경기도에 위치해서 학비가 비싸요 산도 많고 새도 많고 벚꽃이
+                    예쁘고 우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에
+                    위치해서 학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고
+                    우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에 위치해서
+                    학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는
+                    역사와 전통에 빛나지는 않지만, 경기도에 위치해서 학비가
+                    비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는 역사와
+                    전통에 빛나지는 않지만, 경기도에 위치해서 학비가 비싸요 산도
+                    많고 새도 많고 벚꽃이 예쁘고 우리 학교는 역사와 전통에
+                    빛나지는 않지만, 경기도에 위치해서 학비가 비싸요 산도 많고
+                    새도 많고 벚꽃이 예쁘고 우리 학교는 역사와 전통에 빛나지는
+                    않지만, 경기도에 위치해서 학비가 비싸요 산도 많고 새도 많고
+                    벚꽃이 예쁘고 우리 학교는 역사와 전통에 빛나지는 않지만,
+                    경기도에 위치해서 학비가 비싸요 산도 많고 새도 많고 벚꽃이
+                    예쁘고 우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에
+                    위치해서 학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고
+                    우리 학교는 역사와 전통에 빛나지는 않지만, 경기도에 위치해서
+                    학비가 비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 우리 학교는
+                    역사와 전통에 빛나지는 않지만, 경기도에 위치해서 학비가
+                    비싸요 산도 많고 새도 많고 벚꽃이 예쁘고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고 산도 많고 새도 많고 산도 많고 새도 많고
+                    산도 많고 새도 많고
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+        <section id="menu2" class="content">
+          <h2>과목소개</h2>
+          <div class="conbox">
+            <section class="content_wrap">
+              <h3 class="pragrph_tit">으악</h3>
+              <div class="pragrph">
+                <table>
+                  <thead>
+                    <td>번호</td>
+                    <td>이름</td>
+                    <td>MOQ</td>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>1번 책상</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>2번 책상</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>3번 책상</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>4번 책상</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>5번 책상</td>
+                      <td>5</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <!-- </div> -->
+          </div>
+        </section>
+        <section id="menu3" class="content">
+          <h2>FAQ</h2>
+          <div class="conbox">
+            <h3 class="tit_faq">
+              <strong>자주 묻는 질문</strong>
+              <span>디미고에 궁금한게 뭔지 몰라서 다 준비했죠</span>
+            </h3>
+            <div class="accordio_box">
+              <ol>
+                <li class="on">
+                  <h4><span>Q1</span>질문1</h4>
+                  <p>답변1</p>
+                </li>
+                <li>
+                  <h4><span>Q1</span>질문1</h4>
+                  <p>답변1</p>
+                </li>
+                <li>
+                  <h4><span>Q1</span>질문1</h4>
+                  <p>답변1</p>
+                </li>
+                <li>
+                  <h4><span>Q1</span>질문1</h4>
+                  <p>답변1</p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+        <section id="menu4" class="content">
+          <h2>Contact Us</h2>
+          <div class="conbox">
+            <section class="content_wrap">
+              <h3 class="form_tit">우리에게 연락하는 방법</h3>
+              <form
+                class="gform"
+                method="POST"
+                name="contactus"
+                action="https://script.google.com/macros/s/AKfycbyfTnl80Yky0Xvif3QPuVxMXEksEzeZAcWqlrB8h1ocNd59VSWw4yYp4YjsGZbGMXrJ/exec"
+              >
+                <fieldset>
+                  <legend>Contact Us</legend>
+                  <div class="formlist">
+                    <ul>
+                      <li>
+                        <label for="name">
+                          이름
+                          <sup>*</sup>
+                        </label>
+                        <span class="input">
+                          <input required type="text" id="name" name="name" />
+                        </span>
+                      </li>
+                      <li>
+                        <label for="email">
+                          이메일
+                          <sup>*</sup>
+                        </label>
+                        <span class="input">
+                          <input
+                            required
+                            type="text"
+                            id="email"
+                            placeholder="kevin@example.com"
+                            name="email"
+                          />
+                        </span>
+                      </li>
+                      <li>
+                        <label for="message">
+                          문의 내용
+                          <sup>*</sup>
+                        </label>
+                        <span class="input">
+                          <input
+                            required
+                            type="text"
+                            id="message"
+                            name="message"
+                            placeholder="문의 내용을 입력해주세요"
+                          />
+                        </span>
+                      </li>
+                    </ul>
+                    <div class="bt_box">
+                      <button type="submit" class="commbtn">Send</button>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </section>
+          </div>
+        </section>
+      </section>
+      <footer>
+        제발ㅜㅜ
+        <address>
+          경기도 안산시 단원구 와동 사세충열로 94, 한국디지털미디어고등학교
+        </address>
+        <p>copyright(c) 2021, All right reserved to Rycont</p>
+        <a
+          href="https://facebook.com/dimigo"
+          class="face"
+          title="페이스북으로 이동"
+        ></a>
+        <a
+          href="https://instagram.com/dimigoin"
+          class="insta"
+          title="인스타그램으로 이동"
+        ></a>
+      </footer>
+    </section>
+    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./js/ui.js"></script>
+    <script
+      data-cfasync="false"
+      type="text/javascript"
+      src="./js/form-submission-handler.js"
+    ></script>
+  </body>
+</html>
